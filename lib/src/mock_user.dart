@@ -9,7 +9,7 @@ class MockUser with EquatableMixin implements User {
   final String? _email;
   String? _displayName;
   final String? _phoneNumber;
-  final String? _photoURL;
+  String? _photoURL;
   final List<UserInfo> _providerData;
   final String? _refreshToken;
   final UserMetadata? _metadata;
@@ -118,6 +118,13 @@ class MockUser with EquatableMixin implements User {
 
     // Do nothing.
     return Future.value();
+  }
+
+  @override
+  Future<void> updatePhotoURL(String? photoURL) async {
+    _maybeThrowException();
+
+    _photoURL = photoURL;
   }
 
   @override
